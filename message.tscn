@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://cctvlrwbjka1v"]
+
+[ext_resource type="FontFile" uid="uid://d1dyjkooo5wkq" path="res://minecraft-font-regular-full-character-set.ttf" id="1_6vv24"]
+[ext_resource type="Script" path="res://message.gd" id="1_pnuul"]
+[ext_resource type="Script" path="res://message_background.gd" id="2_dusjb"]
+[ext_resource type="Script" path="res://message_content.gd" id="3_7oo5t"]
+
+[node name="MessageMargin" type="MarginContainer" node_paths=PackedStringArray("message_content", "background_color")]
+custom_minimum_size = Vector2(1080, 1920)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 525.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+script = ExtResource("1_pnuul")
+message_content = NodePath("MessageContent")
+background_color = NodePath("MessageBackground")
+
+[node name="MessageBackground" type="ColorRect" parent="."]
+layout_mode = 2
+mouse_filter = 1
+color = Color(0.992157, 0.270588, 0.337255, 1)
+script = ExtResource("2_dusjb")
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="."]
+copy_mode = 2
+
+[node name="MessageContent" type="Label" parent="."]
+custom_minimum_size = Vector2(1080, 1920)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_6vv24")
+theme_override_font_sizes/font_size = 100
+text = "loremsajklahdlkajsdjlkjasjdlkajldjakldjlkajdlkjaskldlkajdlkajdkljdklasjlkdjsdjklsjdklskdjkldjskldjklasjdksjdkljdlkjlkjlkjklsjadklsajdkljaldjaslkdjlksajdlajsdojdioancidycusydouiybdiouaybsoiudybuibyasiucyuoisycoiasuydcoiaysdycasoidloremsajklahdlkajsdjlkjasjdlkajldjakldjlkajdlkjaskldlkajdlkajdkljdklasjlkdjsdjklsjdklskdjkldjskldjklasjdksjdkljdlkjlkjlkjklsjadklsajdkljaldjaslkdjlksajdlajsdojdioancidycusydouiybdiouaybsoiudybuibyasiucyuoisycoiasuydcoiaysdycasoidloremsajklahdlkajsdjlkjasjdlkajldjakldjlkajdlkjaskldlkajdlkajdkljdklasjlkdjsdjklsjdklskdjkldjskldjklasjdksjdkljdlkjlkjlkjklsjadklsajdkljaldjaslkdjlksajdlajsdojdioancidycusydouiybdiouaybsoiudybuibyasiucyuoisycoiasuydcoiaysdycasoidloremsajklahdlkajsdjlkjasjdlkajldjakldjlkajdlkjaskldlkajdlkajdkljdklasjlkdjsdjklsjdklskdjkldjskldjklasjdksjdkljdlkjlkjlkjklsjadklsajdkljaldjaslkdjlksajdlajsdojdioancidycusydouiybdiouaybsoiudybuibyasiucyuoisycoiasuydcoiaysdycasoidloremsajklahdlkajsdjlkjasjdlkajldjakldjlkajdlkjaskldlkajdlkajdkljdklasjlkdjsdjklsjdklskdjkldjskldjklasjdksjdkljdlkjlkjlkjklsjadklsajdkljaldjaslkdjlksajdlajsdojdioancidycusydouiybdiouaybsoiudybuibyasiucyuoisycoiasuydcoiaysdycasoidloremsajklahdlkajsdjlkjasjdlkajldjakldjlkajdlkjaskldlkajdlkajdkljdklasjlkdjsdjklsjdklskdjkldjskldjklasjdksjdkljdlkjlkjlkjklsjadklsajdkljaldjaslkdjlksajdlajsdojdioancidycusydouiybdiouaybsoiudybuibyasiucyuoisycoiasuydcoiaysdycasoidloremsajklahdlkajsdjlkjasjdlkajldjakldjlkajdlkjaskldlkajdlkajdkljdklasjlkdjsdjklsjdklskdjkldjskldjklasjdksjdkljdlkjlkjlkjklsjadklsajdkljaldjaslkdjlksajdlajsdojdioancidycusydouiybdiouaybsoiudybuibyasiucyuoisycoiasuydcoiaysdycasoid"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+script = ExtResource("3_7oo5t")

@@ -1,0 +1,808 @@
+[gd_scene load_steps=24 format=3 uid="uid://bd71auw6gxu0s"]
+
+[ext_resource type="Script" path="res://chat.gd" id="1_4be0s"]
+[ext_resource type="Script" path="res://main.gd" id="1_unnge"]
+[ext_resource type="Script" path="res://ChatScroll.gd" id="2_t2s5y"]
+[ext_resource type="Script" path="res://main_margin.gd" id="2_twwwj"]
+[ext_resource type="Shader" path="res://difference.gdshader" id="3_f28cr"]
+[ext_resource type="Script" path="res://input.gd" id="3_jjivy"]
+[ext_resource type="Script" path="res://input_margin.gd" id="6_76uul"]
+[ext_resource type="PackedScene" uid="uid://c21moxid5ofie" path="res://log_message.tscn" id="6_lbrag"]
+[ext_resource type="FontFile" uid="uid://d1dyjkooo5wkq" path="res://minecraft-font-regular-full-character-set.ttf" id="6_pppj8"]
+[ext_resource type="StyleBox" uid="uid://b2b8fhlb842el" path="res://main_logo.tres" id="8_xf3y8"]
+[ext_resource type="StyleBox" uid="uid://d344d28rcy2dg" path="res://gateway_logo.tres" id="9_i546d"]
+[ext_resource type="PackedScene" uid="uid://cctvlrwbjka1v" path="res://message.tscn" id="10_0o5ca"]
+[ext_resource type="Script" path="res://all_logo_margin.gd" id="10_t34j1"]
+[ext_resource type="StyleBox" uid="uid://q1o6k2eqrumt" path="res://traverse_logo.tres" id="10_ybi2j"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8o2n8"]
+font_size = 60
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i7yx2"]
+resource_local_to_scene = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oxawt"]
+shader = ExtResource("3_f28cr")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kbt6i"]
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 20.0
+content_margin_bottom = 10.0
+bg_color = Color(0.992157, 0.270588, 0.337255, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+corner_detail = 20
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hylti"]
+resource_local_to_scene = true
+shader = ExtResource("3_f28cr")
+
+[sub_resource type="Animation" id="Animation_p13h0"]
+resource_name = "Portal_enter"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("main_margin/all_logo_margin/logo_margin/main_logo:theme_override_styles/panel:corner_radius_top_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [25, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("main_margin/all_logo_margin/logo_margin/main_logo:theme_override_styles/panel:corner_radius_top_right")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [25, 0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("main_margin/all_logo_margin/logo_margin/main_logo:theme_override_styles/panel:corner_radius_bottom_right")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [25, 0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("main_margin/all_logo_margin/logo_margin/main_logo:theme_override_styles/panel:corner_radius_bottom_left")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [25, 0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("main_margin/all_logo_margin/logo_margin:theme_override_constants/margin_left")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [50, 0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("main_margin/all_logo_margin/logo_margin:theme_override_constants/margin_top")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [50, 0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("main_margin/all_logo_margin/logo_margin/main_logo:custom_minimum_size")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(100, 100), Vector2(1080, 1920)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("main_margin:size")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1080, 1920), Vector2(1580, 4000)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("main_margin/input_margin:theme_override_constants/margin_left")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [100, 600]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("main_margin/all_logo_margin/gateway_margin/gateway_logo:custom_minimum_size")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(100, 100)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("main_margin/all_logo_margin/gateway_margin/gateway_logo:theme_override_styles/panel:corner_radius_top_left")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 25]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("main_margin/all_logo_margin/gateway_margin/gateway_logo:theme_override_styles/panel:corner_radius_top_right")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 25]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("main_margin/all_logo_margin/gateway_margin/gateway_logo:theme_override_styles/panel:corner_radius_bottom_right")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 25]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("main_margin/all_logo_margin/gateway_margin/gateway_logo:theme_override_styles/panel:corner_radius_bottom_left")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 25]
+}
+
+[sub_resource type="Animation" id="Animation_qnwtc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("main_margin/all_logo_margin/logo_margin/main_logo:theme_override_styles/panel:corner_radius_top_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [25]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("main_margin/all_logo_margin/logo_margin/main_logo:theme_override_styles/panel:corner_radius_top_right")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [25]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("main_margin/all_logo_margin/logo_margin/main_logo:theme_override_styles/panel:corner_radius_bottom_right")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [25]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("main_margin/all_logo_margin/logo_margin/main_logo:theme_override_styles/panel:corner_radius_bottom_left")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [25]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("main_margin/all_logo_margin/logo_margin:theme_override_constants/margin_left")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [50]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("main_margin/all_logo_margin/logo_margin:theme_override_constants/margin_top")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [50]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("main_margin/all_logo_margin/logo_margin/main_logo:custom_minimum_size")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(100, 100)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("main_margin:size")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1080, 1920)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("main_margin/input_margin:theme_override_constants/margin_left")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [100]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("main_margin/all_logo_margin/gateway_margin/gateway_logo:custom_minimum_size")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(100, 100)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("main_margin/all_logo_margin/gateway_margin/gateway_logo:theme_override_styles/panel:corner_radius_top_left")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [25]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("main_margin/all_logo_margin/gateway_margin/gateway_logo:theme_override_styles/panel:corner_radius_top_right")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [25]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("main_margin/all_logo_margin/gateway_margin/gateway_logo:theme_override_styles/panel:corner_radius_bottom_right")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [25]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("main_margin/all_logo_margin/gateway_margin/gateway_logo:theme_override_styles/panel:corner_radius_bottom_left")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [25]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("main_margin/all_logo_margin/gateway_margin:theme_override_constants/margin_left")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [50]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("main_margin/all_logo_margin/gateway_margin:theme_override_constants/margin_top")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [50]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("main_margin/all_logo_margin/traversal_margin/traversal_logo:theme_override_styles/panel:corner_radius_top_left")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [25]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("main_margin/all_logo_margin/traversal_margin/traversal_logo:theme_override_styles/panel:corner_radius_top_right")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [25]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("main_margin/all_logo_margin/traversal_margin/traversal_logo:theme_override_styles/panel:corner_radius_bottom_right")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [25]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("main_margin/all_logo_margin/traversal_margin/traversal_logo:theme_override_styles/panel:corner_radius_bottom_left")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [25]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("main_margin/all_logo_margin/traversal_margin/traversal_logo:custom_minimum_size")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(100, 100)]
+}
+
+[sub_resource type="Animation" id="Animation_fts4q"]
+resource_name = "portal_traverse"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("main_margin/all_logo_margin/gateway_margin:theme_override_constants/margin_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [50, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("main_margin/all_logo_margin/gateway_margin:theme_override_constants/margin_top")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [50, 0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("main_margin/all_logo_margin/gateway_margin/gateway_logo:theme_override_styles/panel:corner_radius_top_left")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [25, 0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("main_margin/all_logo_margin/gateway_margin/gateway_logo:theme_override_styles/panel:corner_radius_top_right")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [25, 0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("main_margin/all_logo_margin/gateway_margin/gateway_logo:theme_override_styles/panel:corner_radius_bottom_right")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [25, 0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("main_margin/all_logo_margin/gateway_margin/gateway_logo:theme_override_styles/panel:corner_radius_bottom_left")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [25, 0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("main_margin/all_logo_margin/gateway_margin/gateway_logo:custom_minimum_size")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(100, 100), Vector2(1080, 1920)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("main_margin/all_logo_margin/traversal_margin/traversal_logo:theme_override_styles/panel:corner_radius_top_left")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 25]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("main_margin/all_logo_margin/traversal_margin/traversal_logo:theme_override_styles/panel:corner_radius_top_right")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 25]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("main_margin/all_logo_margin/traversal_margin/traversal_logo:theme_override_styles/panel:corner_radius_bottom_right")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 25]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("main_margin/all_logo_margin/traversal_margin/traversal_logo:theme_override_styles/panel:corner_radius_bottom_left")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 25]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("main_margin/all_logo_margin/traversal_margin/traversal_logo:custom_minimum_size")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(100, 100)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jguls"]
+_data = {
+"Portal_enter": SubResource("Animation_p13h0"),
+"RESET": SubResource("Animation_qnwtc"),
+"portal_traverse": SubResource("Animation_fts4q")
+}
+
+[node name="Main" type="Control" node_paths=PackedStringArray("http_request")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_unnge")
+http_request = NodePath("HTTPRequest")
+
+[node name="background_colour" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="main_margin" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(2160, 3840)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("2_twwwj")
+
+[node name="ChatScroll" type="ScrollContainer" parent="main_margin"]
+layout_mode = 2
+mouse_filter = 0
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+script = ExtResource("2_t2s5y")
+
+[node name="Chat" type="VBoxContainer" parent="main_margin/ChatScroll" node_paths=PackedStringArray("main_background")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_4be0s")
+showcase_message_tscn = ExtResource("10_0o5ca")
+log_message_tscn = ExtResource("6_lbrag")
+main_background = NodePath("../../../background_colour")
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="main_margin"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+
+[node name="Displacement" type="Label" parent="main_margin/VBoxContainer"]
+layout_mode = 2
+text = "Displacement"
+label_settings = SubResource("LabelSettings_8o2n8")
+
+[node name="Velocity" type="Label" parent="main_margin/VBoxContainer"]
+layout_mode = 2
+text = "Velocity"
+label_settings = SubResource("LabelSettings_8o2n8")
+
+[node name="Force" type="Label" parent="main_margin/VBoxContainer"]
+layout_mode = 2
+text = "Force"
+label_settings = SubResource("LabelSettings_8o2n8")
+
+[node name="input_margin" type="MarginContainer" parent="main_margin"]
+material = SubResource("ShaderMaterial_i7yx2")
+clip_contents = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_right = 200
+theme_override_constants/margin_bottom = 200
+script = ExtResource("6_76uul")
+
+[node name="input" type="TextEdit" parent="main_margin/input_margin" node_paths=PackedStringArray("main_scene", "input_margin", "displacement_monitor", "velocity_monitor", "force_monitor")]
+material = SubResource("ShaderMaterial_oxawt")
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 8
+focus_mode = 3
+mouse_default_cursor_shape = 0
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/caret_background_color = Color(0, 0, 0, 1)
+theme_override_colors/caret_color = Color(0, 0, 0, 1)
+theme_override_constants/caret_width = 5
+theme_override_fonts/font = ExtResource("6_pppj8")
+theme_override_font_sizes/font_size = 120
+theme_override_styles/normal = SubResource("StyleBoxFlat_kbt6i")
+context_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+drag_and_drop_selection_enabled = false
+wrap_mode = 1
+scroll_fit_content_height = true
+caret_blink = true
+caret_multiple = false
+script = ExtResource("3_jjivy")
+main_scene = NodePath("../..")
+input_margin = NodePath("..")
+displacement_monitor = NodePath("../../VBoxContainer/Displacement")
+velocity_monitor = NodePath("../../VBoxContainer/Velocity")
+force_monitor = NodePath("../../VBoxContainer/Force")
+
+[node name="all_logo_margin" type="MarginContainer" parent="main_margin"]
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("10_t34j1")
+
+[node name="logo_margin" type="MarginContainer" parent="main_margin/all_logo_margin"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+metadata/_edit_lock_ = true
+
+[node name="main_logo" type="Panel" parent="main_margin/all_logo_margin/logo_margin"]
+material = SubResource("ShaderMaterial_hylti")
+clip_contents = true
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+mouse_filter = 1
+theme_override_styles/panel = ExtResource("8_xf3y8")
+
+[node name="gateway_margin" type="MarginContainer" parent="main_margin/all_logo_margin"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+metadata/_edit_lock_ = true
+
+[node name="gateway_logo" type="Panel" parent="main_margin/all_logo_margin/gateway_margin"]
+visible = false
+material = SubResource("ShaderMaterial_hylti")
+clip_contents = true
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+mouse_filter = 1
+theme_override_styles/panel = ExtResource("9_i546d")
+
+[node name="traversal_margin" type="MarginContainer" parent="main_margin/all_logo_margin"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+metadata/_edit_lock_ = true
+
+[node name="traversal_logo" type="Panel" parent="main_margin/all_logo_margin/traversal_margin"]
+material = SubResource("ShaderMaterial_hylti")
+clip_contents = true
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+mouse_filter = 1
+theme_override_styles/panel = ExtResource("10_ybi2j")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jguls")
+}
+
+[connection signal="gui_input" from="main_margin/ChatScroll" to="main_margin/ChatScroll" method="_on_gui_input"]
+[connection signal="focus_entered" from="main_margin/input_margin/input" to="main_margin/input_margin/input" method="_on_focus_entered"]
+[connection signal="focus_exited" from="main_margin/input_margin/input" to="main_margin/input_margin/input" method="_on_focus_exited"]
+[connection signal="gui_input" from="main_margin/input_margin/input" to="main_margin/input_margin/input" method="_on_gui_input"]

@@ -1,0 +1,12 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://06yis8042f1u"]
+
+[ext_resource type="FontFile" uid="uid://d1dyjkooo5wkq" path="res://minecraft-font-regular-full-character-set.ttf" id="1_kmxbh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ckx4"]
+bg_color = Color(1, 0, 0, 1)
+
+[resource]
+default_font = ExtResource("1_kmxbh")
+default_font_size = 45
+/fonts/input = ExtResource("1_kmxbh")
+/styles/input = SubResource("StyleBoxFlat_5ckx4")

@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://c21moxid5ofie"]
+
+[ext_resource type="FontFile" uid="uid://d1dyjkooo5wkq" path="res://minecraft-font-regular-full-character-set.ttf" id="1_8v3ys"]
+[ext_resource type="Script" path="res://log_message.gd" id="1_q3uwo"]
+
+[node name="MarginContainer" type="MarginContainer" node_paths=PackedStringArray("message_content", "background_color")]
+offset_right = 39.0
+offset_bottom = 23.0
+script = ExtResource("1_q3uwo")
+message_content = NodePath("LogMessageContent")
+background_color = NodePath("LogMessageBackground")
+
+[node name="LogMessageBackground" type="ColorRect" parent="."]
+layout_mode = 2
+mouse_filter = 1
+color = Color(0.992157, 0.270588, 0.337255, 1)
+
+[node name="LogMessageContent" type="Label" parent="."]
+custom_minimum_size = Vector2(1080, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_8v3ys")
+theme_override_font_sizes/font_size = 100
+text = "hello"
+autowrap_mode = 3
