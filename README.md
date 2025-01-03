@@ -1,4 +1,6 @@
-# The Proof of Concept app for bantopia
+# The proof of concept app for Bantopia
+
+Check out the website if you haven't: https://github.com/skrillfalconblast/bantopia
 
 It's linked to the website's API using Django.
 
